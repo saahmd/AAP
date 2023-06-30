@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
     - name: Execute Command
-      shell: shell: ls sample
+      shell: ls sample
