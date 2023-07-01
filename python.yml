@@ -1,0 +1,11 @@
+---
+- name: Install Python
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Python (for Red Hat-based systems)
+      yum:
+        name: python3
+        state: present
+      when: ansible_os_family == 'RedHat'
