@@ -1,0 +1,14 @@
+---
+- name: Perform Actions on Router Hosts
+  hosts: routers
+  gather_facts: true
+
+  tasks:
+    - name: Install Network Services
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - quagga
+        - iptables
+        - tcpdump
