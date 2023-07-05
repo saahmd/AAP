@@ -10,6 +10,5 @@
         name: "{{ item }}"
         state: present
       loop:
-        - quagga
         - iptables
         - tcpdump
