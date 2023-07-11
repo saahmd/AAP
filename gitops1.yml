@@ -1,7 +1,0 @@
----
-- name: Execute Shell Command
-  hosts: all
-  gather_facts: false
-  tasks:
-    - name: Execute Command
-      shell: shell: ls sample
