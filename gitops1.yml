@@ -1,0 +1,16 @@
+---
+- name: Provision OpenShift Cluster and Install Python
+  hosts: localhost
+  gather_facts: false
+  become: true
+  
+  tasks:
+    - name: Install Python
+      yum:
+        name: python3
+        state: present
+
+    - name: Install Python PIP
+      yum:
+        name: python3-pip
+        state: present
