@@ -1,9 +1,13 @@
 ---
-- name: Get IP Address of Host
+- name: Get IP Address of Control Machine
   hosts: localhost
-  gather_facts: true
+  gather_facts: false
 
   tasks:
+    - name: Retrieve IP Address
+      command: "hostname -I | awk '{print $1}'"
+      register: ip_address_result
+
     - name: Display IP Address
       debug:
-         msg: "The IP address is {{ ansible_host }}"
+        msg: "The IP address is {{ ip_address_result.stdout }}"
