@@ -6,9 +6,4 @@
   tasks:
     - name: Display IP Address
       debug:
-        var: ansible_default_ipv4.address
-      register: ip_address_result
-
-    - name: Print IP Address
-      debug:
-        msg: "The IP address is {{ ip_address_result['ansible_default_ipv4']['address'] }}"
+        msg: "The IP address is {{ ansible_facts['ansible_default_ipv4']['address'] }}"
