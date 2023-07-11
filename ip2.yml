@@ -6,4 +6,4 @@
   tasks:
     - name: Display IP Address
       debug:
-        msg: "The IP address is {{ ansible_default_ipv4.address }}"
+         msg: "The IP address is {{ ansible_host }}"
