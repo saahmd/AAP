@@ -1,6 +1,6 @@
 ---
 - name: Install Python
-  hosts: all
+  hosts: 192.168.52.92
   become: yes
 
   tasks:
