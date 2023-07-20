@@ -1,6 +1,6 @@
 ---
 - name: Install Python
-  hosts: all
+  hosts: web
   become: yes
 
   tasks:
