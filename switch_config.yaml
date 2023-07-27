@@ -1,0 +1,16 @@
+---
+- name: Configuring interface
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Merge provided configuration with device configuration (default operation
+      is merge)
+      junipernetworks.junos.junos_interfaces:
+        config:
+          - name: et-0/0/4
+            description: Configured by AAP
+            units:
+              - name: 0
+                description: "This is logical intf unit0"
+      state: merged
