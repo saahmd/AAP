@@ -4,8 +4,7 @@
   become: yes
 
   tasks:
-    - name: Merge provided configuration with device configuration (default operation
-      is merge)
+    - name: Merge provided configuration with device configuration (default operation is merge)
       junipernetworks.junos.junos_interfaces:
         config:
           - name: et-0/0/4
