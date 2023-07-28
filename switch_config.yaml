@@ -1,8 +1,6 @@
 ---
 - name: Configuring interface
   hosts: all
-  become: yes
-
   tasks:
     - name: Merge provided configuration with device configuration (default operation is merge)
       junipernetworks.junos.junos_interfaces:
