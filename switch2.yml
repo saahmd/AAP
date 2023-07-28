@@ -1,0 +1,7 @@
+---
+- name: 
+  hosts: all
+  tasks:
+    - name: run show version on remote devices
+      junipernetworks.junos.junos_command:
+        commands: show version
