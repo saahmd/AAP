@@ -1,6 +1,6 @@
 ---
 - name: Configuring Cisco switch
-  hosts: all
+  hosts: cisco
   tasks:
     - name: Merge provided configuration with device configuration
       cisco.nxos.nxos_interfaces:
