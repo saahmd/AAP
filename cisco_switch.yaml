@@ -1,0 +1,10 @@
+---
+- name: Configuring Cisco switch
+  hosts: all
+  tasks:
+    - name: Merge provided configuration with device configuration
+      cisco.nxos.nxos_interfaces:
+        config:
+          - name: Ethernet1/20
+            description: Configured by AAP
+        state: merged
