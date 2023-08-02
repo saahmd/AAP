@@ -6,5 +6,5 @@
       cisco.nxos.nxos_interfaces:
         config:
           - name: Ethernet1/20
-            description: Configured by AAP
+            description: Configured by AAP2
         state: merged
