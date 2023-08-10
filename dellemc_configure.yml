@@ -3,7 +3,7 @@
   hosts: dell
   tasks:
     - name: Configure interfaces
-      sonic_interfaces:
+      dellemc.enterprise_sonic.sonic_interfaces:
         config:
           - name: Ethernet 1/1/10:1
             description: Configured by AAP2
