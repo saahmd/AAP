@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
     - name: Specify a container name to execute the command on
-      kubernetes.core.k8s_exec:
+      redhat.openshift.k8s:
         namespace: aap
         pod: automation-controller-759c89b95c-46tcb
         container: automation-controller-ee
