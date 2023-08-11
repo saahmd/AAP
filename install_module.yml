@@ -2,7 +2,7 @@
 - name: Create a dellemc directory
   hosts: localhost
   become: true
-  become_method: su
+  become_user: root
   tasks:
      - name: Create directory
        ansible.builtin.command: mkdir -p /usr/share/ansible/collections/ansible_collections/dellemc
