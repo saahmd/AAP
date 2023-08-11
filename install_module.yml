@@ -1,5 +1,5 @@
 ---
-- name: Configuring Cisco switch
+- name: Create a dellemc directory
   hosts: localhost
   become: true
   become_method: su
