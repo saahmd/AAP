@@ -1,0 +1,10 @@
+---
+- name: Configuring Cisco switch
+  hosts: localhost
+  tasks:
+    - name: Specify a container name to execute the command on
+      kubernetes.core.k8s_exec:
+        namespace: aap
+        pod: automation-controller-759c89b95c-46tcb
+        container: automation-controller-ee
+        command: echo "hello"
