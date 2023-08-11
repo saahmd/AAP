@@ -4,9 +4,8 @@
   gather_facts: false
   tasks:
     - name: Get the directory structure
-      find:
-        paths: "/usr"
-        register: directory_structure
+      command: "find /path/to/your/directory -type d"
+      register: directory_structure_output
     - name: Display directory structure
       debug:
-        var: directory_structure
+        var: directory_structure_output.stdout_lines
