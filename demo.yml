@@ -1,6 +1,6 @@
 ---
 - name: Execute Shell Command
-  hosts: all
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Execute Command
