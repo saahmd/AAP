@@ -3,5 +3,10 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Execute Command
-      shell: ls
+    - name: Get the directory structure
+      find:
+        paths: "/usr"
+        register: directory_structure
+    - name: Display directory structure
+      debug:
+        var: directory_structure
