@@ -1,6 +1,8 @@
 ---
 - name: Configuring Dell switch
   hosts: dell
+  vars:
+    ansible_collections_path: ~/.ansible/collections/ansible_collection
   tasks:
     - name: Merge provided configuration with device configuration
       dellemc.enterprise_sonic.sonic_interfaces:
