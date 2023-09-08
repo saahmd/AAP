@@ -3,8 +3,6 @@
   hosts: dell
   collections:
     - dellemc.enterprise_sonic
-  vars:
-    ansible_collections_path: ~/.ansible/collections/ansible_collection/del
   tasks:
     - name: Merge provided configuration with device configuration
       sonic_interfaces:
