@@ -1,4 +1,4 @@
 ---
 collections:
 - dellemc.enterprise_sonic
-- netbox.netbox
+- dellemc.os10
