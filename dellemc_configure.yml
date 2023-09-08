@@ -1,9 +1,11 @@
 ---
 - name: Configuring Dell switch
   hosts: dell
+  collections:
+    - dellemc.enterprise_sonic
   tasks:
     - name: Merge provided configuration with device configuration
-      dellemc.enterprise_sonic.sonic_interfaces:
+      sonic_interfaces:
         config:
           - name: Ethernet 1/1/10:1
             description: Configured by AAP2
