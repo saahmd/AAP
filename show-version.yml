@@ -1,0 +1,10 @@
+---
+- name: Configuring Dell switch
+  hosts: dell
+  collections:
+    - dellemc.enterprise_sonic
+  tasks:
+    - name: Test SONiC single command
+      sonic_command:
+        commands: 'show interface status'
+      register: cmd_op
