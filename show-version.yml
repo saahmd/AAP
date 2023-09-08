@@ -3,6 +3,8 @@
   hosts: dell
   collections:
     - dellemc.enterprise_sonic
+  vars:
+      ansible_command_timeout: 120
   tasks:
     - name: Test SONiC single command
       sonic_command:
