@@ -11,4 +11,4 @@
             description: Configured by AAP2
         state: merged
     - debug:
-      var: result
+        var: result
