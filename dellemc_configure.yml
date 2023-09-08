@@ -1,8 +1,6 @@
 ---
 - name: Configuring Dell switch
   hosts: dell
-  collections:
-    - dellemc.enterprise_sonic
   tasks:
     - name: Merge provided configuration with device configuration
       sonic_interfaces:
