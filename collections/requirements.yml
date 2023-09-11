@@ -1,4 +1,4 @@
 ---
 collections:
-- dellemc.enterprise_sonic
-- dellemc.os10
+  - dellemc.enterprise_sonic
+  - dellemc.os10
