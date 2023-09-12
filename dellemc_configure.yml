@@ -10,5 +10,5 @@
          - description Configured by AAP2
        parents:
          - interface Ethernet 1/1/10:1
-       vars:
-          ansible_command_timeout: 180
+     vars:
+        ansible_command_timeout: 180
