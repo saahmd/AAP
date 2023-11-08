@@ -11,7 +11,5 @@
   
   rules:
     - name: Debug Hello event
-      condition: event.alert is defined
       action:
-        run_playbook:
-          name: eda-playbook-alertmanager.yml
+        echo: "Hello, the playbook is running!"
