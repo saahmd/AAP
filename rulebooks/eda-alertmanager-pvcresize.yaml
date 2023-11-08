@@ -1,22 +1,6 @@
 ---
 - name: EDA
   hosts: localhost
-  tasks:
-    - name: Check if secret exists
-      k8s_info:
-        api_version: v1
-        kind: Secret
-        namespace: aap
-        label_selectors:
-          - activation-secret-7
-      register: secret_info
-
-    - name: Delete secret if it exists
-      k8s:
-        state: absent
-        namespace: aap
-        name: activation-secret-7
-      when: secret_info.resources | length > 0
   sources:
     - name: listen for alerts
       ansible.eda.alertmanager:
