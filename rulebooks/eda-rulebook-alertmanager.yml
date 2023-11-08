@@ -3,11 +3,9 @@
   hosts: all
 
   sources:
-    - name: listen for alerts
-      ansible.eda.alertmanager:
-        host: 0.0.0.0
-        port: 5001
-        data_host_path: ""
+    - name: listen for timer events
+      timer:
+        interval: 60 
   
   rules:
     - name: Debug Hello event
