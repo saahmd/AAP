@@ -10,14 +10,9 @@
 
   rules:
     - name: EDA-AlertManager-Run playbook to handle alerts
-      condition: event.payload.status == "firing"
+      condition: event.payload.status == "firing" and event.payload.alerts[0].labels.alertname == "NodeHighMemoryAlert"
       action:
         run_job_template:
-          name: "Resize PVC"
+          name: "aap-gitops"
           organization: Default
-          job_args:
-            extra_vars:
-              alerts: "{{ event.payload.alerts[0] }}"
-              alert_description: "{{ event.payload.alerts[0].annotations.description }}"
-              alert_summary: "{{ event.payload.alerts[0].annotations.summary }}"
-              alertStatus: "{{ event.payload.status }}"
+          
