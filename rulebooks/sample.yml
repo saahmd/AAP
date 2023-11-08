@@ -9,4 +9,4 @@
       condition: event.i == 1
       action:
         run_playbook:
-          name: ansible.eda.hello
+          shell: echo "Hello"
