@@ -5,7 +5,7 @@
   sources:
     - name: listen for alerts
       ansible.eda.alertmanager:
-        host: 0.0.0.0
+        host: eda1-aap.apps.mgmt.tmetse.bos2.lab
         port: 8000
 
   rules:
