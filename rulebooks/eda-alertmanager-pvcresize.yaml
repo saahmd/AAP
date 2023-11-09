@@ -6,7 +6,7 @@
     - name: listen for alerts
       ansible.eda.alertmanager:
         host: 0.0.0.0
-        port: 5001
+        port: 8000
 
   rules:
     - name: EDA-AlertManager-Run playbook to handle alerts
