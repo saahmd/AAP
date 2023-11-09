@@ -9,6 +9,9 @@
         port: 8000
 
   rules:
+    - name: Debug - Display received event
+      debug:
+        var: event
     - name: EDA-AlertManager-Run playbook to handle alerts
       condition: event.alert.status == "firing"
       action:
