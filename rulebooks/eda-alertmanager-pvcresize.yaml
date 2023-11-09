@@ -1,16 +1,23 @@
 ---
-- name: EDA
+- name: EDA | AlertManager | Listen for events from AlertManager
   hosts: localhost
+
   sources:
     - name: listen for alerts
       ansible.eda.alertmanager:
         host: 0.0.0.0
         port: 5001
+
   rules:
     - name: EDA-AlertManager-Run playbook to handle alerts
-      condition: event.payload.status == "firing"
+      condition: event.payload.status == "firing" and event.payload.alerts[0].labels.alertname == "NodeHighMemoryAlert"
       action:
-        - debug:
-            msg: "Hello, I'm in the action section!"
-        - shell: echo "Hello"
-          
+        run_job_template:
+          name: "Resize PVC"
+          organization: Default
+          job_args:
+            extra_vars:
+              alerts: "{{ event.payload.alerts[0] }}"
+              alert_description: "{{ event.payload.alerts[0].annotations.description }}"
+              alert_summary: "{{ event.payload.alerts[0].annotations.summary }}"
+              alertStatus: "{{ event.payload.status }}"
