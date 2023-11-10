@@ -15,9 +15,4 @@
         run_job_template:
           name: "Resize PVC"
           organization: Default
-          job_args:
-            extra_vars:
-              alerts: "{{ event.payload.alerts[0] }}"
-              alert_description: "{{ event.payload.alerts[0].annotations.description }}"
-              alert_summary: "{{ event.payload.alerts[0].annotations.summary }}"
-              alertStatus: "{{ event.payload.status }}"
+          
