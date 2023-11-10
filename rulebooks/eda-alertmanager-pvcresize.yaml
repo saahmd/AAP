@@ -10,7 +10,7 @@
 
   rules:
     - name: EDA-AlertManager-Run playbook to handle alerts
-      condition: event.payload.status == "Firing"
+      condition: event.payload.status == "firing"
       action:
         run_job_template:
           name: "Resize PVC"
