@@ -9,9 +9,10 @@
         port: 5001
 
   tasks:
-    - name: Debug | Print received alert event
+    - name: Debug | Print received alert payload
       debug:
-        var: event
+        var: ansible.eda.alertmanager_payload
+
   rules:
     - name: EDA-AlertManager-Run playbook to handle alerts
       condition: event.alert.status == "firing"
