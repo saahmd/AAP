@@ -1,13 +1,12 @@
 ---
 - name: Check OpenShift Cluster Connection
-  hosts: localhost
+  hosts: hcp-hosts
   connection: local
   gather_facts: false
   tasks:
-    - name: Get OpenShift Version
-      command: oc version
-      register: openshift_version
-      ignore_errors: true  # Don't fail playbook on errors
-    - name: Display OpenShift Version
+    - name: Get Pods (default namespace)
+      command: oc get pods
+      register: pods
+    - name: Print Pods (optional)
       debug:
-        msg: "OpenShift Version: {{ openshift_version.stdout }}"
+        msg: "Pods: {{ pods.stdout }}"
