@@ -1,6 +1,6 @@
 ---
 - name: Check OpenShift Cluster Connection
-  hosts: hcp-hosts
+  hosts: localhosts
   connection: local
   gather_facts: false
   tasks:
