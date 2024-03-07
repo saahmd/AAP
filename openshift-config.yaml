@@ -1,0 +1,13 @@
+---
+- name: Check OpenShift Cluster Connection
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Get OpenShift Version
+      command: oc version
+      register: openshift_version
+      ignore_errors: true  # Don't fail playbook on errors
+    - name: Display OpenShift Version
+      debug:
+        msg: "OpenShift Version: {{ openshift_version.stdout }}"
