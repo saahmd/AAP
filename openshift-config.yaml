@@ -1,12 +1,11 @@
 ---
 - name: Check OpenShift Cluster Connection
-  hosts: localhosts
-  connection: local
-  gather_facts: false
-  tasks:
-    - name: Get Pods (default namespace)
-      command: oc get pods
-      register: pods
-    - name: Print Pods (optional)
-      debug:
-        msg: "Pods: {{ pods.stdout }}"
+  hosts: localhost
+  k8s:
+      api_version: v1
+      kind: ServerVersion
+    register: cluster_version
+
+  - name: Print cluster version
+    debug:
+      msg: "Kubernetes Cluster Version: {{ cluster_version.apiVersion }} ({{ cluster_version.major }}.{{ cluster_version.minor }})"
