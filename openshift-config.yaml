@@ -1,13 +1,13 @@
 ---
-- name: Check OpenShift Cluster Connection
-  hosts: hcp-hosts
-  tasks:
-   - name: Get cluster version
-     k8s:
-       api_version: v1
-       kind: ServerVersion
-     register: cluster_version
+- name: RETRIEVE WORKER NODE DETAILS FROM KUBERNETES NODE
+  hosts: localhost
+  gather_facts: no
 
-   - name: Print cluster version
-     debug:
-       msg: "OpenShift Cluster Version: {{ cluster_version.openshift_version }}"
+  collections: 
+    - community.kubernetes
+  
+  tasks:
+  - name: GET WORKER NODE DETAILS
+    community.kubernetes.k8s_info:
+      kind: Node
+      namespace: default 
