@@ -6,7 +6,7 @@
   collections: 
     - community.kubernetes
   
-   tasks:
+  tasks:
   - name: GET WORKER NODE DETAILS
     community.kubernetes.k8s_info:
       kind: Node
