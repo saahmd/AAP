@@ -1,6 +1,6 @@
 ---
 - name: Check OpenShift Cluster Connection
-  hosts: localhost
+  hosts: hcp-hosts
   tasks:
    - name: Get cluster version
      k8s:
