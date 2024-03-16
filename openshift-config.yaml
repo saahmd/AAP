@@ -7,5 +7,5 @@
 
   - name: DEPLOY BUSYBOX TO KUBERNETES
     community.kubernetes.k8s:
-        definition: "{{ lookup('template', 'busybox.yml') | from_yaml }}"
+        definition: "{{ lookup('template', 'create_pod.yml') | from_yaml }}"
         state: present
