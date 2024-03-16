@@ -1,6 +1,5 @@
 ---
 - name: RETRIEVE WORKER NODE DETAILS FROM KUBERNETES NODE
-  hosts: localhost
   gather_facts: no
 
   collections: 
