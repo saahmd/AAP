@@ -8,6 +8,13 @@
   
   tasks:
   - name: GET WORKER NODE DETAILS
+    register: worker_nodes  # Register the output as 'worker_nodes'
     community.kubernetes.k8s_info:
       kind: Node
-      namespace: default 
+      namespace: default
+      selector: node-role.kubernetes.io/worker=true
+
+  - name: PRINT WORKER NODE DETAILS
+    debug:
+      msg: "{{ item }}"  # Print each item (worker node details)
+    loop: "{{ worker_nodes.results }}"  # Loop through the registered output
