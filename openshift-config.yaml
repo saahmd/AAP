@@ -6,15 +6,13 @@
   collections: 
     - community.kubernetes
   
-  tasks:
+   tasks:
   - name: GET WORKER NODE DETAILS
-    register: worker_nodes  # Register the output as 'worker_nodes'
     community.kubernetes.k8s_info:
       kind: Node
       namespace: default
-      selector: node-role.kubernetes.io/worker=true
+    register: node_result
 
-  - name: PRINT WORKER NODE DETAILS
+  - name: DISPLAY OUTPUT
     debug:
-      msg: "{{ item }}"  # Print each item (worker node details)
-    loop: "{{ worker_nodes.results }}"  # Loop through the registered output
+      msg: "{{ node_result }}"
