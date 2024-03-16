@@ -1,18 +1,11 @@
 ---
-- name: RETRIEVE WORKER NODE DETAILS FROM KUBERNETES NODE
+- name: DEPLOY BUSYBOX
   hosts: localhost
   gather_facts: no
-
-  collections: 
-    - community.kubernetes
   
   tasks:
-  - name: GET WORKER NODE DETAILS
-    community.kubernetes.k8s_info:
-      kind: Node
-      namespace: default
-    register: node_result
 
-  - name: DISPLAY OUTPUT
-    debug:
-      msg: "{{ node_result }}"
+  - name: DEPLOY BUSYBOX TO KUBERNETES
+    community.kubernetes.k8s:
+        definition: "{{ lookup('template', 'busybox.yml') | from_yaml }}"
+        state: present
