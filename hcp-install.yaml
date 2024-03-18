@@ -42,7 +42,6 @@
       command: /tmp/hcp_install/hcp create cluster kubevirt \
                --name "{{ CLUSTER_NAME }}" \
                --node-pool-replicas "{{ WORKER_COUNT }}" \
-               --pull-secret "{{ PULL_SECRET }}" \
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
                --release-image quay.io/openshift-release-dev/ocp-release:{{ OCP_RELEASE }} \
