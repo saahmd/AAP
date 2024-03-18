@@ -39,4 +39,4 @@
         nodes: openshift-node1  # Replace with your node name
         register: hcp_version
     
-    when: not hcp_version.rc == 0  # Only run ve
+      when: not hcp_version.rc == 0  # Only run ve
