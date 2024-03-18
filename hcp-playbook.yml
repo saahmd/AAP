@@ -1,0 +1,24 @@
+---
+- name: Create HCP cluster using kubevirt
+  hosts: localhost
+  become: true  # Required for environment variable manipulation
+
+  tasks:
+    - name: Set environment variables
+      set_fact:
+        CLUSTER_NAME: hcp-test-aap
+        MEM: "16Gi"
+        CPU: "8"
+        WORKER_COUNT: "1"
+        ETCD_STORAGE: "ocs-storagecluster-ceph-rbd"
+        OCP_RELEASE: "4.14.11-x86_64"
+
+    - name: Run hcp create cluster command
+      shell: "hcp create cluster kubevirt \
+        --name {{ CLUSTER_NAME }} \
+        --node-pool-replicas {{ WORKER_COUNT }} \
+        --pull-secret {{ PULL_SECRET }} \
+        --memory {{ MEM }} \
+        --cores {{ CPU }} \
+        --release-image=quay.io/openshift-release-dev/ocp-release:{{ OCP_RELEASE }} \
+        --etcd-storage-class={{ ETCD_STORAGE }}"
