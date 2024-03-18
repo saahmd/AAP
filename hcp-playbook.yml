@@ -1,7 +1,6 @@
 ---
 - name: Create HCP cluster using kubevirt
-  hosts: localhost
-  become: true  # Required for environment variable manipulation
+  hosts: localhost 
 
   tasks:
     - name: Set environment variables
