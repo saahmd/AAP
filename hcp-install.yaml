@@ -33,7 +33,6 @@
     - name: Verify HCP installation (using full path)
       command: /tmp/hcp_install/hcp hcp --version
       register: hcp_version
-      when: not hcp_version.rc == 0
     # Optional task to verify installation
 
      # Optional task to display the HCP version 
