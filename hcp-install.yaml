@@ -8,6 +8,7 @@
         url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/arm64/hcp.tar.gz
         dest: /tmp/hcp.tar.gz
         mode: 0644
+        validate_certs: no 
 
     - name: Unpack HCP archive using unarchive module
       ansible.builtin.unarchive:
