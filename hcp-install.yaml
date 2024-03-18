@@ -38,6 +38,7 @@
         owner: 
         group: 
         mode: 0755
+      become: true
       become_user: root 
 
     # Optional task to verify installation
