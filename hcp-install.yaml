@@ -1,0 +1,42 @@
+---
+- name: Install HCP binary on OCP nodes
+  hosts: all 
+
+  tasks:
+    - name: Create temporary directory in default namespace
+      oc_dir:
+        name: hcp-install
+        namespace: default
+
+    - name: Download HCP archive to temporary directory
+      oc_download:
+        url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/arm64/hcp.tar.gz
+        dest: /opt/hcp-install  # Inside the pod
+
+    - name: Unpack HCP archive
+      oc_exec:
+        command: tar -xvzf hcp.tar.gz
+        working_dir: /opt/hcp-install
+
+    - name: Make HCP binary executable
+      oc_exec:
+        command: chmod +x hcp
+        working_dir: /opt/hcp-install/
+
+    - name: Copy HCP binary to desired location (replace with your path)
+      oc_cp:
+        src: /opt/hcp-install/hcp
+        dest: /usr/local/bin/  # Edit destination path as needed
+
+    - name: Clean temporary directory
+      oc_rm:
+        path: /opt/hcp-install
+
+  # Optional task to verify installation (replace with your verification command)
+  - name: Verify HCP installation on a node (edit node name)
+    oc_exec:
+      command: hcp --version
+      nodes: openshift-node1  # Replace with your node name
+      register: hcp_version
+  
+  when: not hcp_version.rc == 0  # Only run ve
