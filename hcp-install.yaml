@@ -12,7 +12,7 @@
 
     - name: Download HCP archive to temporary directory
       uri:
-        url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/arm64/hcp.tar.gz
+        url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/amd64/hcp.tar.gz
         dest: /tmp/hcp_install/hcp.tar.gz
         mode: 0644
         validate_certs: no 
