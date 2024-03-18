@@ -3,30 +3,36 @@
   hosts: localhost
 
   tasks:
-    - name: Download HCP archive
+    - name: Create temporary directory with write access for playbook user
+      file:
+        path: /tmp/hcp_install
+        state: directory
+        mode: 0755  # Allows user to read, write, execute, and group/others can only read and execute
+
+    - name: Download HCP archive to temporary directory
       uri:
         url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/arm64/hcp.tar.gz
-        dest: /tmp/hcp.tar.gz
+        dest: /tmp/hcp_install/hcp.tar.gz
         mode: 0644
         validate_certs: no 
 
     - name: Unpack HCP archive using unarchive module
       ansible.builtin.unarchive:
         # Set src to the downloaded archive path
-        src: /tmp/hcp.tar.gz
+        src: /tmp/hcp_install/hcp.tar.gz
         # Set dest to the directory where you want to unpack (contents will be placed here)
-        dest: /tmp  
+        dest: /tmp/hcp_install 
     
     - name: Make HCP binary executable
       file:
-        path: /tmp/hcp
+        path: /tmp/hcp_install/hcp
         mode: +x
         owner: root
         group: root
 
     - name: Copy HCP binary to system path
       copy:
-        src: /tmp/hcp
+        src: /tmp/hcp_install/hcp
         dest: /usr/local/bin/hcp
         owner: root
         group: root
