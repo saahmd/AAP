@@ -31,7 +31,7 @@
         owner: 
         group: 
     - name: Verify HCP installation (using full path)
-      command: /tmp/hcp_install/hcp hcp --version
+      command: /tmp/hcp_install/hcp --version
       register: hcp_version
     # Optional task to verify installation
 
