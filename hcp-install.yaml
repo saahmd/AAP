@@ -1,6 +1,7 @@
 ---
 - name: Install HCP binary on Ansible controller
   hosts: localhost
+  become: true
 
   tasks:
     - name: Create temporary directory with write access for playbook user
