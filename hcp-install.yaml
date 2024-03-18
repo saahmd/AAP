@@ -1,5 +1,5 @@
 ---
-- name: Install HCP binary on Ansible controller
+- name: Provision HCP cluster
   hosts: localhost
   
 
@@ -30,13 +30,27 @@
         mode: +x
         owner: 
         group: 
-    - name: Verify HCP installation (using full path)
-      command: /tmp/hcp_install/hcp --version
-      register: hcp_version
+    #- name: Verify HCP installation (using full path)
+     # command: /tmp/hcp_install/hcp --version
+      #register: hcp_version
     # Optional task to verify installation
 
      # Optional task to display the HCP version 
-    - name: Print HCP version
-      debug:
-        msg: "HCP version: {{ hcp_version.stdout }}"
-      when: hcp_version.rc == 0
+    - name: Export cluster variables
+        set_fact:
+          CLUSTER_NAME: hcp-test-app
+          MEM: 16Gi
+          CPU: 8
+          WORKER_COUNT: 1
+          ETCD_STORAGE: ocs-storagecluster-ceph-rbd
+          OCP_RELEASE: 4.14.11-x86_64
+    - name: Create KubeVirt cluster
+      command: hcp create cluster kubevirt \
+               --name "{{ CLUSTER_NAME }}" \
+               --node-pool-replicas "{{ WORKER_COUNT }}" \
+               --pull-secret "{{ PULL_SECRET }}" \
+               --memory "{{ MEM }}" \
+               --cores "{{ CPU }}" \
+               --release-image quay.io/openshift-release-dev/ocp-release:{{ OCP_RELEASE }} \
+               --etcd-storage-class "{{ ETCD_STORAGE }}"
+      
