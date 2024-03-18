@@ -32,11 +32,11 @@
       oc_rm:
         path: /opt/hcp-install
 
-  # Optional task to verify installation (replace with your verification command)
-  - name: Verify HCP installation on a node (edit node name)
-    oc_exec:
-      command: hcp --version
-      nodes: openshift-node1  # Replace with your node name
-      register: hcp_version
-  
-  when: not hcp_version.rc == 0  # Only run ve
+    # Optional task to verify installation (replace with your verification command)
+    - name: Verify HCP installation on a node (edit node name)
+      oc_exec:
+        command: hcp --version
+        nodes: openshift-node1  # Replace with your node name
+        register: hcp_version
+    
+    when: not hcp_version.rc == 0  # Only run ve
