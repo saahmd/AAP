@@ -9,13 +9,13 @@
         dest: /tmp/hcp.tar.gz
         mode: 0644
 
-    - name: Unpack HCP archive
-      archive:
-        path: /tmp/hcp.tar.gz
-        extract: yes
-        owner: root
-        group: root
-
+    - name: Unpack HCP archive using unarchive module
+      ansible.builtin.unarchive:
+        # Set src to the downloaded archive path
+        src: /tmp/hcp.tar.gz
+        # Set dest to the directory where you want to unpack (contents will be placed here)
+        dest: /tmp  
+    
     - name: Make HCP binary executable
       file:
         path: /tmp/hcp
