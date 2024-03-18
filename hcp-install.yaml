@@ -1,7 +1,7 @@
 ---
 - name: Install HCP binary on Ansible controller
   hosts: localhost
-  become: true
+  
 
   tasks:
     - name: Create temporary directory with write access for playbook user
@@ -28,15 +28,15 @@
       file:
         path: /tmp/hcp_install/hcp
         mode: +x
-        owner: root
-        group: root
+        owner: 
+        group: 
 
     - name: Copy HCP binary to system path
       copy:
         src: /tmp/hcp_install/hcp
         dest: /usr/local/bin/hcp
-        owner: root
-        group: root
+        owner: 
+        group: 
         mode: 0755
 
     # Optional task to verify installation
