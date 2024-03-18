@@ -30,20 +30,14 @@
         mode: +x
         owner: 
         group: 
-
-    - name: Copy HCP binary to system path
-      copy:
-        src: /tmp/hcp_install/hcp
-        dest: /usr/local/bin/hcp
-        owner: 
-        group: 
-        mode: 0755
-      become: true
-      become_user: root 
-
-    # Optional task to verify installation
-    - name: Verify HCP installation
-      command: hcp --version
+    - name: Verify HCP installation (using full path)
+      command: /tmp/hcp_install/hcp hcp --version
       register: hcp_version
-    
-      when: not hcp_version.rc == 0  # Only run verification if hcp is not already installed
+      when: not hcp_version.rc == 0
+    # Optional task to verify installation
+
+     # Optional task to display the HCP version 
+    - name: Print HCP version
+      debug:
+        msg: "HCP version: {{ hcp_version.stdout }}"
+      when: hcp_version.rc == 0
