@@ -35,8 +35,8 @@
       copy:
         src: /tmp/hcp_install/hcp
         dest: /usr/local/bin/hcp
-        owner: 
-        group: 
+        owner: root
+        group: root
         mode: 0755
 
     # Optional task to verify installation
