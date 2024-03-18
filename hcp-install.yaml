@@ -38,6 +38,9 @@
         WORKER_COUNT: 1
         ETCD_STORAGE: ocs-storagecluster-ceph-rbd
         OCP_RELEASE: 4.14.11-x86_64
+    - name: Change directory to HCP installation directory
+      command: cd /tmp/hcp_install/hcp
+      
     - name: Create KubeVirt cluster
       command: hcp create cluster kubevirt \
                --name "{{ CLUSTER_NAME }}" \
