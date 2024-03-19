@@ -49,7 +49,6 @@
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
-               --pull-secret= {"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfYmFhZWQwZDE5MjRlNDNmNmE4NzQyYWE0MTY3Y2MwZDc6REJYRElGUTJTWjlKU0RUUzZRVlhDWVkyVzEzSEVWQ1lSNk5INFVTWVQxU0pENEI4TlFIODVDVVBGQUFKMzczSA==","email":"saahmed@redhat.com"},"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfYmFhZWQwZDE5MjRlNDNmNmE4NzQyYWE0MTY3Y2MwZDc6REJYRElGUTJTWjlKU0RUUzZRVlhDWVkyVzEzSEVWQ1lSNk5INFVTWVQxU0pENEI4TlFIODVDVVBGQUFKMzczSA==","email":"saahmed@redhat.com"}}} \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
   #- name: Verify HCP installation (using full path)
