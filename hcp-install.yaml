@@ -47,7 +47,7 @@
                --name= hcp-test-app \
                --node-pool-replicas=1 \
                --memory= 16Gi \
-               --cores= 8 \
+               --cores=8 \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
                --pull-secret= PULL_SECRET \ 
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
