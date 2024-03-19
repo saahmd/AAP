@@ -8,6 +8,7 @@
       debug:
           msg: "SSH key content: {{ lookup('env', 'PA') }}"
     
-    - name: List directory contents if PA points to a directory (careful!)
-      shell: ls {{ lookup('env', 'PA') }}
+    - name: Print filename from PA environment variable
+      debug:
+          msg: "Filename: {{ lookup('env', 'PA') | basename }}"
       
