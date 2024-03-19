@@ -1,0 +1,10 @@
+- name: DEPLOY BUSYBOX
+  hosts: localhost
+  gather_facts: no
+  
+  tasks:
+
+  - name: DEPLOY BUSYBOX TO KUBERNETES
+    community.kubernetes.k8s:
+        definition: "{{ lookup('template', 'create_pod.yml') | from_yaml }}"
+        state: present
