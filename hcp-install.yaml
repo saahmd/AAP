@@ -41,7 +41,7 @@
         PULL_SECRET: "{{ lookup('env', 'PULL_SECRET') }}"
     - name: Print environment variable hy
       debug:
-          msg: "Secret key content: {{ lookup('env', 'PULL_SECRET') }}"
+          msg: "Secret key content: {{ PULL_SECRET }}"
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
                --name "{{ CLUSTER_NAME }}" \
@@ -49,6 +49,7 @@
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
                --release-image=quay.io/openshift-release-dev/ocp-release:${OCP_RELEASE} \
+               --pull-secret "{{PULL_SECRET}}"
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
