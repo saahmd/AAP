@@ -49,7 +49,6 @@
                --cores "{{ CPU }}" \
                --release-image quay.io/openshift-release-dev/ocp-release:{{ OCP_RELEASE }} \
                --pull-secret "{{ PULL_SECRET }} "\
-               --ssh-key "{% lookup('tower_credential', credential_name='SSH key') %}"  \
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
