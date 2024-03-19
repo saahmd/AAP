@@ -3,4 +3,4 @@
   tasks:
     - name: Print environment variable hy
       debug:
-          msg: "SSH key content: {{ lookup('credential', 'SSH KEY') }}"
+          msg: "SSH key content: {{ lookup('credentials', 'SSH KEY') }}"
