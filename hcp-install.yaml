@@ -49,7 +49,7 @@
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
-               --pull-secret="{{ PULL_SECRET }}"
+               --pull-secret= {"auths":{"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K3JobnNhbnNhdHNpYTFwMmJzNnUyY3Fzbmx4a3VhaG5ycWJtbGRldzpXSDNNRVVGNjBTWkhPWTIyNFA0VDBYMzY5WFU3SFhETjVGQVlYQTJaRDEySTNET00xWTNEUjFBMEVDVE9VMVkz","email":"nsatsia@redhat.com"}}} \
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
