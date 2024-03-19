@@ -30,9 +30,6 @@
         mode: +x
         owner: 
         group: 
-    - name: Export cluster variables
-      set_fact:
-        KUBERNETES_MASTER: https://100.66.109.6:6443
     - name: Delete KubeVirt cluster
       command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-final
       
