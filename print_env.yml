@@ -3,4 +3,4 @@
   tasks:
     - name: Print environment variable hy
       debug:
-        msg: "The value of environment variable hy is: {{ lookup('env', 'KUBERNETES_MASTER') }}"
+        msg: "The value of environment variable hy is: {{ lookup('env', 'KUBERNETES_ASTER') }}"
