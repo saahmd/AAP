@@ -32,12 +32,7 @@
         group: 
     - name: Export cluster variables
       set_fact:
-        CLUSTER_NAME: hcp-test-app
-        MEM: 16Gi
-        CPU: 8
-        WORKER_COUNT: 1
-        ETCD_STORAGE: ocs-storagecluster-ceph-rbd
-        OCP_RELEASE: 4.14.11-x86_64
+        KUBERNETES_MASTER: https://100.66.109.6:6443
     - name: Delete KubeVirt cluster
       command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-test-delete
       
