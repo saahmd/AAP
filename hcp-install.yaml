@@ -44,10 +44,10 @@
           msg: "Secret key content: {{ PULL_SECRET }}"
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
-               --name= hcp-test-app \
+               --name "{{CLUSTER_NAME}}" \
                --node-pool-replicas=1 \
-               --memory= 16Gi \
-               --cores=8 \
+               --memory "{{MEM}}" \
+               --cores "{{CPU}}" \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
                --pull-secret= PULL_SECRET \ 
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
