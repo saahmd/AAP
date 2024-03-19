@@ -3,4 +3,4 @@
   tasks:
     - name: Print environment variable hy
       debug:
-          msg: "SSH key content: {{ lookup('env', 'PULL') }}"
+          msg: "SSH key content: {{ lookup('env', 'KU') }}"
