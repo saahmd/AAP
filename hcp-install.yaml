@@ -48,6 +48,7 @@
                --node-pool-replicas "{{ WORKER_COUNT }}" \
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
+               --release-image=quay.io/openshift-release-dev/ocp-release:${OCP_RELEASE} \
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
