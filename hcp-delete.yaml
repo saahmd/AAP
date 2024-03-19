@@ -1,0 +1,49 @@
+---
+- name: Delete HCP cluster
+  hosts: localhost
+  
+
+  tasks:
+    - name: Create temporary directory with write access for playbook user
+      file:
+        path: /tmp/hcp_install
+        state: directory
+        mode: 0755  # Allows user to read, write, execute, and group/others can only read and execute
+
+    - name: Download HCP archive to temporary directory
+      uri:
+        url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/amd64/hcp.tar.gz
+        dest: /tmp/hcp_install/hcp.tar.gz
+        mode: 0644
+        validate_certs: no 
+
+    - name: Unpack HCP archive using unarchive module
+      ansible.builtin.unarchive:
+        # Set src to the downloaded archive path
+        src: /tmp/hcp_install/hcp.tar.gz
+        # Set dest to the directory where you want to unpack (contents will be placed here)
+        dest: /tmp/hcp_install 
+    
+    - name: Make HCP binary executable
+      file:
+        path: /tmp/hcp_install/hcp
+        mode: +x
+        owner: 
+        group: 
+    - name: Export cluster variables
+      set_fact:
+        CLUSTER_NAME: hcp-test-app
+        MEM: 16Gi
+        CPU: 8
+        WORKER_COUNT: 1
+        ETCD_STORAGE: ocs-storagecluster-ceph-rbd
+        OCP_RELEASE: 4.14.11-x86_64
+    - name: Delete KubeVirt cluster
+      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-test-delete
+      
+  #- name: Verify HCP installation (using full path)
+     # command: /tmp/hcp_install/hcp --version
+      #register: hcp_version
+    # Optional task to verify installation
+
+     # Optional task to display the HCP version 
