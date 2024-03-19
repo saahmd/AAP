@@ -46,6 +46,7 @@
                --cores "{{ CPU }}" \
                --release-image quay.io/openshift-release-dev/ocp-release:{{ OCP_RELEASE }} \
                --pull-secret "{{ PULL_SECRET }} "\
+               --ssh-key  ${SSH_KEY} \
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
