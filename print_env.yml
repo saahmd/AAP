@@ -6,5 +6,8 @@
         CLUSTER_NAME: hcp-test-app
     - name: Print environment variable hy
       debug:
-          msg: "SSH key content: {{ lookup('env', 'PULL_SECRET') }}"
           msg: " key content: {{ lookup('env', 'CLUSTER_NAME') }}"
+    - name: Print environment variable hy
+      debug:
+          msg: "SSH key content: {{ lookup('env', 'PULL_SECRET') }}"
+    
