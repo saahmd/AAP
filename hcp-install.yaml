@@ -44,13 +44,13 @@
           msg: "Secret key content: {{ PULL_SECRET }}"
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
-               --name "{{ CLUSTER_NAME }}" \
-               --node-pool-replicas "{{ WORKER_COUNT }}" \
-               --memory "{{ MEM }}" \
-               --cores "{{ CPU }}" \
+               --name= hcp-test-app \
+               --node-pool-replicas=1 \
+               --memory= 16Gi \
+               --cores= 8 \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
-               --pull-secret= {"auths":{"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K3JobnNhbnNhdHNpYTFwMmJzNnUyY3Fzbmx4a3VhaG5ycWJtbGRldzpXSDNNRVVGNjBTWkhPWTIyNFA0VDBYMzY5WFU3SFhETjVGQVlYQTJaRDEySTNET00xWTNEUjFBMEVDVE9VMVkz","email":"nsatsia@redhat.com"}}} \
-               --etcd-storage-class "{{ ETCD_STORAGE }}"
+               --pull-secret= PULL_SECRET
+               --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
   #- name: Verify HCP installation (using full path)
      # command: /tmp/hcp_install/hcp --version
