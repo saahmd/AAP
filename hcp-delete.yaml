@@ -34,7 +34,7 @@
       set_fact:
         KUBERNETES_MASTER: https://100.66.109.6:6443
     - name: Delete KubeVirt cluster
-      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-test-delete
+      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-final
       
   #- name: Verify HCP installation (using full path)
      # command: /tmp/hcp_install/hcp --version
