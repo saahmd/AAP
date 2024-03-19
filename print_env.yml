@@ -7,7 +7,9 @@
     - name: Print environment variable hy
       debug:
           msg: "SSH key content: {{ lookup('env', 'PULL_SECRET') }}"
-    
+    - name: Get pull secret path
+      set_fact:
+        PULL_SECRET_PATH: "{{ lookup('env', 'PULL_SECRET') }}"
     - name: Read pull secret file content
       slurp:
         path: "{{ PULL_SECRET_PATH }}"
