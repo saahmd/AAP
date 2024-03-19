@@ -48,8 +48,8 @@
                --node-pool-replicas "{{ WORKER_COUNT }}" \
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
-               --release-image=quay.io/openshift-release-dev/ocp-release:"{{OCP_RELEASE}}" \
-               --pull-secret "{{PULL_SECRET}}"
+               --release-image=quay.io/openshift-release-dev/ocp-release:4.14.11-x86_64\
+               --pull-secret={"auths":{"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfYmFhZWQwZDE5MjRlNDNmNmE4NzQyYWE0MTY3Y2MwZDc6REJYRElGUTJTWjlKU0RUUzZRVlhDWVkyVzEzSEVWQ1lSNk5INFVTWVQxU0pENEI4TlFIODVDVVBGQUFKMzczSA==","email":"saahmed@redhat.com"}}}
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
   #- name: Verify HCP installation (using full path)
