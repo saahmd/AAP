@@ -6,15 +6,8 @@
         CLUSTER_NAME: hcp-test-app
     - name: Print environment variable hy
       debug:
-          msg: "SSH key content: {{ lookup('env', 'PULL_SECRET') }}"
-    - name: Get pull secret path
-      set_fact:
-        PULL_SECRET_PATH: "{{ lookup('env', 'PULL_SECRET') }}"
-    - name: Read pull secret file content
-      slurp:
-        path: "{{ PULL_SECRET_PATH }}"
-      register: pull_secret_content
-    - name: Print pull secret content (optional)
-      debug:
-        msg: "Pull secret content: {{ pull_secret_content.content }}"
-        
+          msg: "SSH key content: {{ lookup('env', 'PA') }}"
+    
+    - name: List directory contents if PA points to a directory (careful!)
+      shell: ls {{ lookup('env', 'PA') }}
+      when: PA_IS_SET and  lookup('file', lookup('env', 'PA') ).isdir
