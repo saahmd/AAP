@@ -48,7 +48,7 @@
                --node-pool-replicas "{{ WORKER_COUNT }}" \
                --memory "{{ MEM }}" \
                --cores "{{ CPU }}" \
-               --release-image=quay.io/openshift-release-dev/ocp-release:${OCP_RELEASE} \
+               --release-image=quay.io/openshift-release-dev/ocp-release:"{{OCP_RELEASE}}" \
                --pull-secret "{{PULL_SECRET}}"
                --etcd-storage-class "{{ ETCD_STORAGE }}"
       
