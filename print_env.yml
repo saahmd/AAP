@@ -10,4 +10,4 @@
     
     - name: List directory contents if PA points to a directory (careful!)
       shell: ls {{ lookup('env', 'PA') }}
-      when: PA_IS_SET and  lookup('file', lookup('env', 'PA') ).isdir
+      
