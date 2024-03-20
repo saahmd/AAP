@@ -2,11 +2,17 @@
 - name: Create a NS
   hosts: localhost 
   tasks:
-   - name: Print environment variable hy
-     debug:
-          msg: "K8S_AUTH: {{ lookup('env', 'KUBECONFIG') }}"
-   - name: View kubectl configuration
-     command: kubectl config view 
+   #- name: Print environment variable hy
+    # debug:
+     #     msg: "K8S_AUTH: {{ lookup('env', 'KUBECONFIG') }}"
+  # - name: View kubectl configuration
+   #  command: kubectl config view 
+    # #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
+     #register: kubectl_config_output
+
+
+  - name: View kubectl configuration
+     command: kubectl get pods -n default
      #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
      register: kubectl_config_output
   
