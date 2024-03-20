@@ -32,7 +32,7 @@
 
     - name: Export cluster variables
       set_fact:
-        CLUSTER_NAME: hcp-test-app
+        #CLUSTER_NAME: hcp-test-app
         MEM: 16Gi
         CPU: 8
         WORKER_COUNT: 1
