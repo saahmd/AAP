@@ -2,8 +2,10 @@
 - name: Create a NS
   hosts: localhost 
   tasks:
-   - name: Get kubectl config
-     command: kubectl config view --kubeconfig=/runner/env
+   - name: View kubectl configuration
+     command: kubectl config view
+     environment:
+       K8S_AUTH_KUBECONFIG: "{{ tower.filename.kubeconfig }}"
      register: kubectl_config_output
   
    - name: Show captured output (optional)
