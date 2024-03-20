@@ -30,49 +30,6 @@
         mode: +x
         owner: 
         group: 
-
-    - name: Create file and store variable content
-      copy:
-        content: "
-        -----BEGIN OPENSSH PRIVATE KEY-----
-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
------END OPENSSH PRIVATE KEY----- 
-"
         dest: /tmp/ssh-key
         mode: 0644  # Optional, set file permissions
 
@@ -91,7 +48,7 @@ xOGPaqJCVZunjvAAAAEnRtZWFkbWluQGFhcC12bS0wMQ==
         ETCD_STORAGE: ocs-storagecluster-ceph-rbd
         OCP_RELEASE: 4.14.11-x86_64
         PULL_ET_FILE: /tmp/secret.json
-        SSH_KEY: /tmp/ssh-key
+        
     #- name: Print environment variable hy
      # debug:
       #    msg: "Secret key content: {{ PULL_SECRET }}"
@@ -102,7 +59,6 @@ xOGPaqJCVZunjvAAAAEnRtZWFkbWluQGFhcC12bS0wMQ==
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
                --pull-secret "{{ PULL_ET_FILE }}" \
-               --ssh-key  "{{SSH_KEY}}" \
                --release-image=quay.io/openshift-release-dev/ocp-release:4.14.11-x86_64 \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
