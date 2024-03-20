@@ -9,3 +9,10 @@
     community.kubernetes.k8s:
         definition: "{{ lookup('template', 'create_pod.yml') | from_yaml }}"
         state: present
+  - name: Get a list of all pods from any namespace
+    kubernetes.core.k8s_info:
+      kind: Pod
+    register: pod_list
+  - name: Print
+    debug:
+      msg: pod_list.stdout
