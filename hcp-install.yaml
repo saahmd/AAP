@@ -46,7 +46,7 @@
         WORKER_COUNT: 1
         ETCD_STORAGE: ocs-storagecluster-ceph-rbd
         OCP_RELEASE: 4.14.11-x86_64
-        PULL_ET_FILE: /tmp/secret.json
+        PULL_ET_FILE: "{{ lookup('env', 'PULL_SECRET')}}"
         
     #- name: Print environment variable hy
      # debug:
@@ -57,8 +57,7 @@
                --node-pool-replicas=2 \
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
-               #--pull-secret "{{ PULL_ET_FILE }}" \
-               --pull-secret " {{ lookup('env', 'PULL_SECRET') }} "
+               --pull-secret "{{ PULL_ET_FILE }}" \
                --release-image=quay.io/openshift-release-dev/ocp-release:4.14.11-x86_64 \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
