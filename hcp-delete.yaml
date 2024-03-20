@@ -31,7 +31,7 @@
         owner: 
         group: 
     - name: Delete KubeVirt cluster
-      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-t
+      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-t2
       
   #- name: Verify HCP installation (using full path)
      # command: /tmp/hcp_install/hcp --version
