@@ -12,10 +12,8 @@
 
 
   - name: View kubectl configuration
-    command: oc get pods -n default
-   #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
-    register: kubectl_config_output
-
+    kubernetes.core.k8s_cluster_info:
+    register: api_status
   - name: Show captured output (optional)
     debug:
-      var: kubectl_config_output.stdout
+      var: api_status.stdout
