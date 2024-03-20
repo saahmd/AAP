@@ -4,11 +4,10 @@
   tasks:
    - name: Print environment variable hy
      debug:
-          msg: "K8S_AUTH: {{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
+          msg: "K8S_AUTH: {{ lookup('env', 'KUBECONFIG') }}"
    - name: View kubectl configuration
-     command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
-    # environment:
-     #  K8S_AUTH_KUBECONFIG: "{{ tower.filename.kubeconfig }}"
+     command: kubectl config view 
+     #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
      register: kubectl_config_output
   
    - name: Show captured output (optional)
