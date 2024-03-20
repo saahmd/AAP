@@ -12,9 +12,11 @@
 
 
   - name: View kubectl configuration
-    kubernetes.core.k8s_cluster_info:
-      invalidate_cache: False
-    register: api_status
+    kubernetes.core.k8s_info:
+      api_version: v1
+      kind: Pod
+      namespace: default
+    register: pod_list
   - name: Show captured output (optional)
     debug:
-      var: api_status.stdout
+      var: pod_list.stdout
