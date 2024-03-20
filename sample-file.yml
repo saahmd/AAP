@@ -3,8 +3,8 @@
   hosts: localhost 
   tasks:
    - name: Get kubectl config
-      command: kubectl config view
-      register: kubectl_config_output
+     command: kubectl config view
+     register: kubectl_config_output
   
    - name: Show captured output (optional)
      debug:
