@@ -1,6 +1,8 @@
 ---
 - name: Create a NS
   hosts: localhost 
+  collections: 
+    - community.kubernetes
   tasks:
    #- name: Print environment variable hy
     # debug:
@@ -9,8 +11,6 @@
    #  command: kubectl config view 
     # #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
      #register: kubectl_config_output
-  collections: 
-    - community.kubernetes
 
   - name: View kubectl configuration
     community.kubernetes.k8s_info::
