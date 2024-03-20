@@ -2,3 +2,4 @@
 collections:
   - dellemc.enterprise_sonic
   - community.kubernetes
+  - kubernetes.core
