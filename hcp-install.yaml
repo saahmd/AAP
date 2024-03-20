@@ -30,8 +30,7 @@
         mode: +x
         owner: 
         group: 
-        dest: /tmp/ssh-key
-        mode: 0644  # Optional, set file permissions
+        
 
     - name: Create file secret with content
       copy:
