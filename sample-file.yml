@@ -12,7 +12,7 @@
 
 
   - name: View kubectl configuration
-    command: kubectl get pods -n default
+    command: oc get pods -n default
    #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
     register: kubectl_config_output
 
