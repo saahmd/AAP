@@ -30,5 +30,5 @@
         group: 
    
     - name: Delete KubeVirt cluster
-      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-t2
+      command: /tmp/hcp_install/hcp destroy cluster kubevirt --name "{{CLUSTER_NAME}}"
       
