@@ -2,9 +2,9 @@
 - name: Create a NS
   hosts: localhost 
   tasks:
-   - name: Print the value of environment variable "MY_VAR"
+   - name: Print environment variable hy
      debug:
-        msg: {{ lookup('ansible.builtin.env', 'K8S_AUTH_KUBECONFIG' }}
+          msg: "SSH key content: {{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
   # - name: View kubectl configuration
    #  command: kubectl config view
     # environment:
