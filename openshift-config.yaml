@@ -2,7 +2,8 @@
 - name: DEPLOY BUSYBOX
   hosts: localhost
   gather_facts: no
-  
+  collections:
+    - kubernetes.core
   tasks:
 
   - name: DEPLOY BUSYBOX TO KUBERNETES
