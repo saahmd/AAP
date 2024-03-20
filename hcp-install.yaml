@@ -55,7 +55,7 @@
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
                --name "{{CLUSTER_NAME}}" \
-               --node-pool-replicas=1 \
+               --node-pool-replicas=2 \
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
                --pull-secret "{{ PULL_ET_FILE }}" \
