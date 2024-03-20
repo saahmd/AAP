@@ -16,6 +16,6 @@
    #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
     register: kubectl_config_output
 
-   - name: Show captured output (optional)
-     debug:
-       var: kubectl_config_output.stdout
+  - name: Show captured output (optional)
+    debug:
+      var: kubectl_config_output.stdout
