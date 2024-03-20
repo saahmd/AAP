@@ -3,7 +3,7 @@
   hosts: localhost 
   tasks:
    - name: Get kubectl config
-     command: kubectl config view
+     command: kubectl config view --kubeconfig=/runner/env
      register: kubectl_config_output
   
    - name: Show captured output (optional)
