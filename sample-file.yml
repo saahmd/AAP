@@ -4,7 +4,7 @@
   tasks:
    - name: Print the value of environment variable "MY_VAR"
      debug:
-        msg: The value of MY_VAR is: {{ lookup('ansible.builtin.env', 'K8S_AUTH_KUBECONFIG') }}
+        msg: {{ lookup('ansible.builtin.env', 'K8S_AUTH_KUBECONFIG') }}
   # - name: View kubectl configuration
    #  command: kubectl config view
     # environment:
