@@ -16,4 +16,4 @@
     register: pod_list
   - name: Print
     debug:
-      msg: pod_list.stdout
+      msg: "{{pod_list}}"
