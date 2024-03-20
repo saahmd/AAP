@@ -47,7 +47,7 @@
                --node-pool-replicas=1 \
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
-               --pull-secret "{{ lookup('file', 'pass.json') }} \
+               --pull-secret {{ lookup('file', 'pass.json') }} \
                --release-image=quay.io/openshift-ease:4.14.11-x86_64 \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
