@@ -33,7 +33,7 @@
     
     - name: Create file secret with content
       copy:
-        content: "{"auths":{"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfYmFhZWQwZDE5MjRlNDNmNmE4NzQyYWE0MTY3Y2MwZDc6REJYRElGUTJTWjlKU0RUUzZRVlhDWVkyVzEzSEVWQ1lSNk5INFVTWVQxU0pENEI4TlFIODVDVVBGQUFKMzczSA==","email":"saahmed@redhat.com"}}}"
+        content: '{"auths":{"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfYmFhZWQwZDE5MjRlNDNmNmE4NzQyYWE0MTY3Y2MwZDc6REJYRElGUTJTWjlKU0RUUzZRVlhDWVkyVzEzSEVWQ1lSNk5INFVTWVQxU0pENEI4TlFIODVDVVBGQUFKMzczSA==","email":"saahmed@redhat.com"}}}'
         dest: /tmp/secret.json
         mode: 0644  # Optional, set file permissions
         
