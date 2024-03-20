@@ -30,6 +30,15 @@
         mode: +x
         owner: 
         group: 
+    - name: View kubectl configuration
+      command: kubectl config view 
+      #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
+      register: kubectl_config_output
+  
+    - name: Show captured output (optional)
+      debug:
+        var: kubectl_config_output.stdout
+        
     - name: Delete KubeVirt cluster
       command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-t2
       
