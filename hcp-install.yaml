@@ -38,7 +38,7 @@
         WORKER_COUNT: 1
         ETCD_STORAGE: ocs-storagecluster-ceph-rbd
         OCP_RELEASE: 4.14.11-x86_64
-        PULL_SECRET: "{{ lookup('env', 'PA') }}"
+        PULL_SECRET: "{{ lookup('file', 'pass.json') }}
     - name: Print environment variable hy
       debug:
           msg: "Secret key content: {{ PULL_SECRET }}"
