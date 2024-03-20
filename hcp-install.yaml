@@ -19,9 +19,7 @@
 
     - name: Unpack HCP archive using unarchive module
       ansible.builtin.unarchive:
-        # Set src to the downloaded archive path
         src: /tmp/hcp_install/hcp.tar.gz
-        # Set dest to the directory where you want to unpack (contents will be placed here)
         dest: /tmp/hcp_install 
     
     - name: Make HCP binary executable
@@ -42,9 +40,7 @@
         OCP_RELEASE: 4.14.11-x86_64
         PULL_SECRET: "{{ lookup('env', 'PULL_SECRET')}}"
         
-    #- name: Print environment variable hy
-     # debug:
-      #    msg: "Secret key content: {{ PULL_SECRET }}"
+    
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
                --name "{{CLUSTER_NAME}}" \
@@ -55,9 +51,4 @@
                --release-image=quay.io/openshift-release-dev/ocp-release:4.14.11-x86_64 \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
       
-  #- name: Verify HCP installation (using full path)
-     # command: /tmp/hcp_install/hcp --version
-      #register: hcp_version
-    # Optional task to verify installation
-
-     # Optional task to display the HCP version 
+ 
