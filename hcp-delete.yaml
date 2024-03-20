@@ -1,14 +1,12 @@
 ---
 - name: Delete HCP cluster
   hosts: localhost
-  
-
   tasks:
     - name: Create temporary directory with write access for playbook user
       file:
         path: /tmp/hcp_install
         state: directory
-        mode: 0755  # Allows user to read, write, execute, and group/others can only read and execute
+        mode: 0755  
 
     - name: Download HCP archive to temporary directory
       uri:
@@ -30,15 +28,7 @@
         mode: +x
         owner: 
         group: 
-    - name: View kubectl configuration
-      command: kubectl config view 
-      #command: kubectl config view --kubeconfig "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
-      register: kubectl_config_output
-  
-    - name: Show captured output (optional)
-      debug:
-        var: kubectl_config_output.stdout
-        
+   
     - name: Delete KubeVirt cluster
       command: /tmp/hcp_install/hcp destroy cluster kubevirt --name hcp-t2
       
