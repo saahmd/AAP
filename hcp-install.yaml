@@ -43,7 +43,7 @@
     
     - name: Create KubeVirt cluster
       command: /tmp/hcp_install/hcp create cluster kubevirt \
-               --name "{{CLUSTER_NAME}}" \
+               --name "{{ '{{ random_uuid }}' | regex_replace('[^a-zA-Z0-9-]', '-', rgx=True) }}" \
                --node-pool-replicas=2 \
                --memory "{{MEM}}" \
                --cores "{{CPU}}" \
