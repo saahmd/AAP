@@ -32,7 +32,8 @@
 
     - name: Export cluster variables
       set_fact:
-        CLUSTER_NAME: "{{ hosted-cluster + (1000 | random(10000)) }}"
+        NAME: "{{hosted-cluster}}"
+        CLUSTER_NAME: "{{ NAME + (1000 | random(10000)) }}"
         MEM: 16Gi
         CPU: 8
         WORKER_COUNT: 1
