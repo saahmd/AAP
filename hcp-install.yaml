@@ -32,7 +32,7 @@
 
     - name: Export cluster variables
       set_fact:
-        CLUSTER_NAME: "{{ (100 | random(10000)) }}"
+        CLUSTER_NAME: "{{ 100 | random }}"
         MEM: 16Gi
         CPU: 8
         WORKER_COUNT: 1
