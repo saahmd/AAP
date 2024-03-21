@@ -32,8 +32,7 @@
 
     - name: Export cluster variables
       set_fact:
-        var1: "hcp"
-        CLUSTER_NAME: "{{ var1 + var1 }}"
+        CLUSTER_NAME: hcp-t
         MEM: 16Gi
         CPU: 8
         WORKER_COUNT: 1
