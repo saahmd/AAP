@@ -51,7 +51,7 @@
                --pull-secret "{{ PULL_SECRET}}" \
                --release-image=quay.io/openshift-release-dev/ocp-release:4.14.11-x86_64 \
                --etcd-storage-class= ocs-storagecluster-ceph-rbd
-               --infra-namespace= hcp-workers \
+               --infra-namespace=example-workers \
                --infra-kubeconfig-file "{{ INFRA_CLUSTER }}"
       
  
