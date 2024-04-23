@@ -35,7 +35,7 @@
         CLUSTER_NAME: "hcp{{ 100 | random }}"
         MEM: 16Gi
         CPU: 8
-        WORKER_COUNT: 1
+        WORKER_COUNT: 2
         ETCD_STORAGE: ocs-storagecluster-ceph-rbd
         OCP_RELEASE: 4.14.11-x86_64
         PULL_SECRET: "{{ lookup('env', 'PULL_SECRET')}}"
