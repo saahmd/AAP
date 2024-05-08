@@ -10,9 +10,6 @@
         namespace: openshift-config
         name: pull-secret
       register: pull_secret_var
-    - name: write pull-secret to file
-      copy:
-        content: "{{ pull_secret_var }}"
-        dest: /pull-file.json
+    
 
 
