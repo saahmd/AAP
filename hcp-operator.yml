@@ -2,7 +2,8 @@
 - name: Provision HCP cluster
   hosts: localhost
   
-
+  collections:
+    - kubernetes.core.k8s_info
   tasks:
     - name: Get Pull Secret from openshift-config namespace
       k8s_info:
