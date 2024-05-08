@@ -3,4 +3,3 @@ collections:
   - dellemc.enterprise_sonic
   - community.kubernetes
   - kubernetes.core
-  - k8s_info
