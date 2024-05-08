@@ -13,6 +13,6 @@
     - name: write pull-secret to file
       copy:
         content: "{{ pull_secret_var }}"
-        dest: /pull-file
+        dest: /pull-file.json
 
 
