@@ -4,15 +4,15 @@
   
 
   tasks:
-    - name: Create temporary directory with write access for playbook user
-      file:
-        path: /tmp/hcp_install
-        state: directory
-        mode: 0755  # Allows user to read, write, execute, and group/others can only read and execute
+    - name: Get Pull Secret from openshift-config namespace
+      k8s_info:
+        kind: Secret
+        namespace: openshift-config
+        name: pull-secret
+      register: pull_secret_var
+    - name: write pull-secret to file
+      copy:
+        content: {{pull_secret_var}}
+        dest: /pull-file
 
-    - name: Download HCP archive to temporary directory
-      uri:
-        url: https://hcp-cli-download-multicluster-engine.apps.mgm2.tmetse.bos2.lab/linux/amd64/hcp.tar.gz
-        dest: /tmp/hcp_install/hcp.tar.gz
-        mode: 0644
-        validate_certs: no 
+
