@@ -12,7 +12,7 @@
       register: pull_secret_var
     - name: write pull-secret to file
       copy:
-        content: {{pull_secret_var}}
+        content: "{{ pull_secret_var }}"
         dest: /pull-file
 
 
